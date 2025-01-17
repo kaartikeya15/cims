@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Faculty Research Interest Comparison</title>
+  
+  <!-- Load D3 -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <style>
+    /* Basic Page Styles */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      margin: 20px;
+      align-items: center;
+      padding-top: 70px; /* Offset for fixed nav bar */
+      padding-bottom: 50px; /* Add space for bottom nav bar */
+    }
+
+    /* Navigation Bar (NYU purple) */
+    nav {
+      background-color: #500F86; /* NYU purple */
+      color: white;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 95%;
+    }
+
+    .logo {
+      height: 50px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      display: inline;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ddd;
+    }
+
+    /* Dropdown Container for Search Options */
+    .dropdown-container {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 20px;
+      cursor: pointer;
+    }
+
+    .dropdown-container div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    input[type="text"], select {
+      width: 300px;
+      padding: 8px;
+      border: 1px solid #0f0818;
+      border-radius: 5px;
+      font-size: 14px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      margin-bottom: 8px;
+      background: #fff;
+      color: #333;
+    }
+
+    input::placeholder {
+      color: #9993a0;
+      font-style: italic;
+    }
+
+    /* Make the Teaching Area dropdown horizontally scrollable */
+    #teaching-dropdown {
+      width: 319px;
+      height: 90px;
+      white-space: nowrap; /* prevent line breaks */
+      overflow-x: auto;    /* horizontal scroll if text is wide */
+      overflow-y: auto;    /* still allow vertical scroll */
+      cursor: pointer;
+    }
+
+    select {
+      height: 90px;
+      width: 319px;
+      background: #fff;
+      color: #7043A8;
+      border: 1px solid #0f0818;
+      overflow-y: auto;
+      cursor: pointer;
+    }
+
+    select option {
+      padding: 5px;
+      font-size: 14px;
+      background: #fff;
+      color: #333;
+    }
+
+    select option:hover {
+      background-color: #f6f1fc;
+    }
+
+    .dropdown-container div:hover input[type="text"],
+    .dropdown-container div:hover select {
+      border-color: #a574e6;
+      box-shadow: 0 0 6px rgba(112, 67, 168, 0.4);
+    }
+
+    /* Matrix Header Container */
+    .matrix-header-container {
+      width: 100%;
+      background-color: #fff;
+      height: 250px; /* Enough space for the rotated headers if needed */
+      overflow-x: hidden !important; /* No horizontal scroll by user */
+      overflow-y: hidden !important; /* Remove vertical scroll as well */
+      margin-bottom: 5px;
+      position: relative;
+      padding-bottom: 5px;
+      padding-right: 50px;
+    }
+
+    #matrix-header {
+      display: grid;
+      gap: 5px;
+      margin: 0 20px;
+      min-width: max-content; 
+    }
+
+    .top-left-header {
+      text-align: right;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Scrollable Matrix Body */
+    .matrix-container {
+      width: 100%;
+      max-height: 600px;
+      overflow-y: auto;
+      overflow-x: auto;
+      margin: 20px auto;
+      position: relative; 
+      background: #fafafa;
+      padding-right: 50px;
+    }
+
+    .matrix {
+      display: grid;
+      gap: 5px;
+      margin: 0 20px;
+      min-width: max-content;
+    }
+
+    .label {
+      text-align: center;
+      padding: 5px;
+      color: #333;
+    }
+
+    .course-header {
+      background-color: #fff;
+      font-family: 'Arial', Times, serif;
+      text-align: left;
+      transform: rotate(200deg) translate(-36px);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      padding: 5px;
+      margin: 0;
+      cursor: pointer;
+      color: #333;
+      transition: font-weight 0.2s, background-color 0.2s;
+    }
+
+    .faculty-row {
+      display: contents;
+      margin-top: 10px;
+    }
+
+    .cell {
+      width: 20px;
+      height: 20px;
+      margin: 1px;
+      border: 0px solid #ccc;
+      cursor: default;
+    }
+
+    .cell:hover {
+      border: 2px solid orange;
+      cursor: pointer;
+    }
+
+    .highlighted {
+      border: 2px solid orange;
+    }
+
+    .tooltip {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 8px;
+      border-radius: 5px;
+      pointer-events: none;
+      font-size: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .department-name {
+      grid-column: 1 / -1;
+      text-align: left;
+      font-weight: bold;
+      font-size: 20px;
+      color: #333;
+      padding: 10px 0;
+      white-space: nowrap;
+      margin-left: 205px;
+    }
+
+    /* Bottom Nav Bar (NYU Purple) */
+    #bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #500F86; /* NYU purple */
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    #about-toggle {
+      background-color: transparent;
+      color: white;
+      border: none;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 5px 15px;
+      transition: color 0.3s ease;
+    }
+
+    #about-toggle:hover {
+      color: #ddd;
+    }
+
+    #about-details {
+      background-color: white;
+      color: #333;
+      padding: 10px;
+      font-size: 14px;
+      border-top: 1px solid #ccc;
+      display: none;
+    }
+
+    #bottom-nav p {
+      margin: 0;
+    }
+
+    /* 
+     * The Slide Panel 
+     * (NYU-themed gradient from light lilac to white)
+    */
+    .slide-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 50%; 
+      max-width: 600px;
+      height: 100vh;
+
+      background: linear-gradient(to bottom, #F8F2FC 0%, #FFFFFF 70%);
+      box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+
+      transform: translateX(100%); /* hidden offscreen initially */
+      transition: transform 0.4s ease-in-out;
+      z-index: 2000;
+      overflow-y: auto; /* allow vertical scrolling */
+      font-family: "Arial", sans-serif;
+    }
+
+    /* Slide in from right */
+    .slide-panel.active {
+      transform: translateX(0);
+    }
+
+    /* Slide Panel Close Button */
+    .slide-panel-close {
+      background: transparent;
+      border: none;
+      font-size: 26px;
+      font-weight: bold;
+      cursor: pointer;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      color: #500F86;  /* NYU purple */
+      transition: color 0.3s;
+    }
+    .slide-panel-close:hover {
+      color: #a574e6; /* lighter purple on hover */
+    }
+
+    /* Panel Content */
+    .slide-panel-content {
+      margin-top: 60px; /* space for close button above */
+      padding: 20px 25px;
+      color: #333; /* text color */
+      font-size: 17px;
+    }
+
+    /* Example styling for professor details inside the slide panel */
+    .slide-panel-content h2 {
+      margin-bottom: 15px;
+      font-size: 40px;
+      color: #000000; /* purple heading */
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+    }
+
+    .slide-panel-content p {
+      line-height: 1.4;
+      margin: 8px 0;
+
+    }
+    .slide-panel-content p strong {
+      color: #500F86;
+      font-weight: 600;
+    }
+
+    /* A simple list for research interests */
+    .slide-panel-content ul {
+      margin: 10px 0 15px 25px;
+      line-height: 1.5;
+      text-decoration: underline;
+
+    }
+
+    /* Links in the side panel (Research Interests, Scholar, etc.) */
+    .slide-panel-content a {
+      color: #000000; /* NYU Purple link */
+      text-decoration: underline;
+      transition: color 0.3s;
+    }
+    .slide-panel-content a:hover {
+      text-decoration: underline;
+      color: #7f57a1; /* lighter purple on hover */
+    }
+
+    /* The dark overlay behind the side panel */
+    .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* semi-transparent dark shade */
+    z-index: 1500;        /* behind panel (which is 2000) but above main content */
+    display: none;        /* hidden by default */
+    }
+    .overlay.active {
+    display: block;
+    }
+
+
+  </style>
+</head>
+<body>
+  <!-- Top Navigation -->
+  <nav>
+    <div class="nav-container">
+      <img src="logo.png" alt="NYU Logo" class="logo" />
+      <ul class="nav-links">
+        <li><a href="index.html">Chord Visualization</a></li>
+        <li><a href="CSE.html">Matrix Visualization</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Dropdowns for searching / filtering -->
+  <div class="dropdown-container">
+    <div>
+      <label for="faculty-dropdown">Faculty Member:</label>
+      <input
+        type="text"
+        id="faculty-search"
+        placeholder="Search Faculty..."
+        onkeyup="filterOptions('faculty-search', 'faculty-dropdown')"
+      />
+      <select id="faculty-dropdown" multiple size="5">
+        <option value="">All</option>
+      </select>
+    </div>
+    <div>
+      <label for="teaching-dropdown">Teaching Area:</label>
+      <input
+        type="text"
+        id="teaching-search"
+        placeholder="Search Teaching Area..."
+        onkeyup="filterOptions('teaching-search', 'teaching-dropdown')"
+      />
+      <select id="teaching-dropdown" multiple size="5"></select>
+    </div>
+    <div>
+      <label for="research-dropdown">Research Interest:</label>
+      <input
+        type="text"
+        id="research-search"
+        placeholder="Search Research Interest..."
+        onkeyup="filterOptions('research-search', 'research-dropdown')"
+      />
+      <select id="research-dropdown" multiple size="5">
+        <option value="">All</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Title / Instructions -->
+  <h2 style="text-align: left; font-size: 30px; color: #333; margin: 30px 0; padding-left: 220px;">
+    Faculty Research Interest Comparison
+  </h2>
+  <p style="text-align: left; color: #555; margin: 10px 0; font-size: 14px; padding-left: 220px; white-space: nowrap;">
+    Hover over or click on a cell to show more information. Use the control panel above to filter and highlight.
+  </p>
+
+  <!-- Matrix Header (course headers) -->
+  <div class="matrix-header-container" id="matrixHeaderContainer">
+    <div id="matrix-header" class="matrix">
+      <div class="top-left-header"></div>
+    </div>
+  </div>
+
+  <!-- Matrix Body -->
+  <div class="matrix-container" id="matrixBodyContainer">
+    <div id="matrix" class="matrix"></div>
+  </div>
+
+  <!-- Tooltip (hover info) -->
+  <div id="tooltip" class="tooltip" style="display: none;"></div>
+
+  <!-- Bottom Nav Bar -->
+  <div id="bottom-nav">
+    <button id="about-toggle">ABOUT THIS VISUALIZATION</button>
+    <div id="about-details" style="display: none;">
+      <p>
+        Each row represents a faculty member, while each column represents a
+        research interest. Cells are filled in when a faculty member and
+        research interest overlap.
+      </p>
+    </div>
+  </div>
+
+  <!-- Slide Panel (NYU gradient) -->
+  <div id="slide-panel" class="slide-panel">
+    <button id="slide-panel-close" class="slide-panel-close">✕</button>
+    <div id="slide-panel-content" class="slide-panel-content">
+      <!-- The dynamic professor info will go here -->
+    </div>
+  </div>
+
+  <div id="overlay" class="overlay"></div>
+
+
+  <script>
+    // Panel references
+    const slidePanel = document.getElementById("slide-panel");
+    const slidePanelContent = document.getElementById("slide-panel-content");
+    const slidePanelClose = document.getElementById("slide-panel-close");
+    // Grab the same #tooltip element used for the matrix
+    const globalTooltip = d3.select("#tooltip");
+
+    const overlay = document.getElementById("overlay");
+
+
+    document.getElementById("slide-panel-content").addEventListener("mouseover", function(e) {
+    if (e.target.matches(".interest-link")) {
+      const interestName = e.target.getAttribute("data-interest");
+      globalTooltip
+        .style("display", "block")
+        .html(`
+          <strong>Research Interest:</strong> ${interestName}
+          <br><em>Click to search on Google</em>
+        `)
+        .style("left", `${e.pageX + 10}px`)
+        .style("top", `${e.pageY + 10}px`);
+    } else if (e.target.matches(".scholar-link")) {
+      globalTooltip
+        .style("display", "block")
+        .html(`
+          <strong>Google Scholar</strong><br>
+          <em>Click to open this professor's profile</em>
+        `)
+        .style("left", `${e.pageX + 10}px`)
+        .style("top", `${e.pageY + 10}px`);
+    }
+  });
+
+  document.getElementById("slide-panel-content").addEventListener("mousemove", function(e) {
+    console.log("mouseover on slide panel content:", e.target);
+    if (globalTooltip.style("display") === "block") {
+      globalTooltip
+        .style("left", `${e.pageX + 10}px`)
+        .style("top", `${e.pageY + 10}px`);
+    }
+  });
+
+  document.getElementById("slide-panel-content").addEventListener("mouseout", function(e) {
+    if (e.target.matches(".interest-link") || e.target.matches(".scholar-link")) {
+      globalTooltip.style("display", "none");
+    }
+  });
+
+
+    // Close button removes .active
+    slidePanelClose.addEventListener("click", () => {
+      slidePanel.classList.remove("active");
+      overlay.classList.remove("active");
+    });
+
+    // Close panel if user clicks the overlay
+    overlay.addEventListener("click", () => {
+      slidePanel.classList.remove("active");
+      overlay.classList.remove("active");
+    });
+
+    
+
+    
+    // About Toggle
+    const aboutToggle = document.getElementById("about-toggle");
+    aboutToggle.addEventListener("click", () => {
+      const aboutDetails = document.getElementById("about-details");
+      aboutDetails.style.display =
+        aboutDetails.style.display === "block" ? "none" : "block";
+    });
+
+    // Filter Options
+    function filterOptions(searchInputId, dropdownId) {
+      const searchValue = document
+        .getElementById(searchInputId)
+        .value.toLowerCase();
+      const dropdown = document.getElementById(dropdownId);
+      Array.from(dropdown.options).forEach((option) => {
+        option.style.display =
+          option.text.toLowerCase().includes(searchValue) || option.value === ""
+            ? ""
+            : "none";
+      });
+    }
+
+    // Extend d3 to filter by text
+    d3.selection.prototype.contains = function (text) {
+      return this.filter(function () {
+        return d3.select(this).text() === text;
+      });
+    };
+
+    // DOM references for dropdowns
+    const facultyDropdown = d3.select("#faculty-dropdown");
+    const teachingDropdown = d3.select("#teaching-dropdown");
+    teachingDropdown
+      .append("option")
+      .attr("value", "Computer Science and Engineering")
+      .text("Computer Science and Engineering");
+    teachingDropdown
+      .append("option")
+      .attr("value", "Courant Institute of Mathematical Sciences (CIMS)")
+      .text("Courant Institute of Mathematical Sciences (CIMS)");
+
+    const researchDropdown = d3.select("#research-dropdown");
+
+    // Matrix references
+    const matrixHeader = d3.select("#matrix-header");
+    const matrixBody = d3.select("#matrix");
+    const matrixBodyContainer   = document.getElementById("matrixBodyContainer");
+    const matrixHeaderContainer = document.getElementById("matrixHeaderContainer");
+
+    let globalData = [];
+    let globalDepartments = [];
+    let globalCourses = [];
+
+    // Sync scrolling: container -> header
+    matrixHeaderContainer.removeEventListener("scroll", () => {});
+    matrixBodyContainer.addEventListener("scroll", () => {
+      matrixHeaderContainer.scrollLeft = matrixBodyContainer.scrollLeft;
+    });
+
+    // Load Data
+    function loadDataset(datasetPath) {
+      d3.csv(datasetPath).then((data) => {
+        const columns = Object.keys(data[0]);
+        const hasAffiliation = columns.includes("Affiliation");
+        const hasCitations   = columns.includes("Total Citations");
+        const hasHIndex      = columns.includes("H Index");
+
+        globalData = data;
+        window.hasAffiliation = hasAffiliation;
+        window.hasCitations   = hasCitations;
+        window.hasHIndex      = hasHIndex;
+
+        const departments = Array.from(new Set(data.map(d => d.Department)));
+        globalDepartments = departments;
+
+        const facultyMembers = Array.from(new Set(data.map(d => d["Professor Name"])));
+        const optionalColumns = ["Affiliation", "Total Citations", "H Index"];
+        const courses = Object.keys(data[0])
+          .filter(key =>
+            key !== "Professor Name" &&
+            key !== "Department" &&
+            key !== "googlescholar" &&
+            !optionalColumns.includes(key)
+          );
+        globalCourses = courses;
+
+        // Populate faculty
+        facultyDropdown.selectAll("option").remove();
+        facultyDropdown.append("option").attr("value", "").text("All");
+        facultyMembers.forEach(member => {
+          facultyDropdown.append("option").attr("value", member).text(member);
+        });
+
+        // Populate research
+        researchDropdown.selectAll("option").remove();
+        researchDropdown.append("option").attr("value", "").text("All");
+        courses.forEach(course => {
+          researchDropdown.append("option").attr("value", course).text(course);
+        });
+
+        updateMatrixAndHeader();
+      });
+    }
+
+    // Update Matrix
+    function updateMatrixAndHeader() {
+      const selectedFaculty = Array.from(facultyDropdown.node().selectedOptions)
+        .map(opt => opt.value).filter(v => v !== "");
+      const selectedDepartments = Array.from(teachingDropdown.node().selectedOptions)
+        .map(opt => opt.value).filter(v => v !== "");
+      const selectedCourses = Array.from(researchDropdown.node().selectedOptions)
+        .map(opt => opt.value).filter(v => v !== "");
+
+      const filteredData = globalData.filter(d =>
+        (selectedFaculty.length === 0 || selectedFaculty.includes(d["Professor Name"])) &&
+        (selectedDepartments.length === 0 || selectedDepartments.includes(d.Department))
+      );
+
+      const displayedCourses = globalCourses.filter(
+        c => selectedCourses.length === 0 || selectedCourses.includes(c)
+      );
+
+      // Clear old headers
+      matrixHeader.selectAll(".course-header").remove();
+      matrixHeader.style("grid-template-columns", `200px repeat(${displayedCourses.length}, 20px)`);
+
+      // Create course headers
+      displayedCourses.forEach((course, courseIndex) => {
+        matrixHeader
+          .append("div")
+          .attr("class", "label header course-header")
+          .text(course)
+          .on("mouseover", function(event) {
+            d3.selectAll(`.cell[data-course-index='${courseIndex}']`)
+              .classed("highlighted", true);
+            d3.select(this)
+              .transition().duration(200)
+              .style("font-size", "16px")
+              .style("font-weight", "bold")
+              .style("text-decoration", "underline");
+
+            // Build tooltip
+            const relevantProfessors = filteredData
+              .filter(d => parseFloat(d[course]) > 0.0)
+              .map(d => `<li>${d["Professor Name"]}</li>`)
+              .join("");
+            d3.select("#tooltip")
+              .style("display", "block")
+              .html(`
+                <strong>Course:</strong> ${course}<br>
+                Professors:<br>
+                <ul>${relevantProfessors || "<li>None</li>"}</ul>
+                <p>Click to Search "${course}" on Google</p>
+              `)
+              .style("left", `${event.pageX + 10}px`)
+              .style("top", `${event.pageY + 10}px`);
+          })
+          .on("mouseout", function() {
+            d3.selectAll(`.cell[data-course-index='${courseIndex}']`)
+              .classed("highlighted", false);
+            d3.select(this)
+              .transition().duration(200)
+              .style("font-size", "14px")
+              .style("font-weight", "normal")
+              .style("text-decoration", "none");
+            d3.select("#tooltip").style("display", "none");
+          })
+          .on("click", function() {
+            const query = encodeURIComponent(course);
+            window.open(`https://www.google.com/search?q=${query}`, "_blank");
+          });
+      });
+
+      // Build the matrix body
+      const colorScale = d3.scaleOrdinal()
+        .domain(globalDepartments)
+        .range(["#69b3a2", "#ffcc00", "#ff5733", "#3498db", "#8e44ad"]);
+
+      matrixBody.html("").style("grid-template-columns", `200px repeat(${displayedCourses.length}, 20px)`);
+
+      // For each department
+      globalDepartments.forEach(dept => {
+        const deptRows = filteredData.filter(d => d.Department === dept);
+        if (deptRows.length > 0) {
+          matrixBody.append("div").attr("class", "department-name").text(dept);
+
+          deptRows.forEach(prof => {
+            const facultyRow = matrixBody.append("div").attr("class", "faculty-row");
+
+            // Professor name
+            facultyRow
+              .append("div")
+              .attr("class", "label")
+              .style("text-align", "right")
+              .style("cursor", "pointer")
+              .text(prof["Professor Name"])
+              .on("click", function () {
+                // optional columns if exist
+                let affiliationHtml = "";
+                if (window.hasAffiliation && prof["Affiliation"]) {
+                  affiliationHtml = `<p><strong>Affiliation:</strong> ${prof["Affiliation"]}</p>`;
+                }
+                let citationsHtml = "";
+                if (window.hasCitations && prof["Total Citations"]) {
+                  citationsHtml = `<p><strong>Total Citations:</strong> ${prof["Total Citations"]}</p>`;
+                }
+                let hIndexHtml = "";
+                if (window.hasHIndex && prof["H Index"]) {
+                  hIndexHtml = `<p><strong>H Index:</strong> ${prof["H Index"]}</p>`;
+                }
+
+                // Research interests clickable
+                const relevantInterests = displayedCourses
+                .filter(c => parseFloat(prof[c]) > 0.0)
+                .map(c => {
+                    const encoded = encodeURIComponent(c);
+                    // Add class="interest-link"
+                    return `<li>
+                    <a href="https://www.google.com/search?q=${encoded}"
+                        target="_blank"
+                        class="interest-link"
+                        data-interest="${c}">
+                        ${c}
+                    </a>
+                    </li>`;
+                })
+                .join("");
+
+                // For the Google Scholar link, add class="scholar-link"
+                const scholarLink = prof["googlescholar"]
+                    ? `<a href="${prof["googlescholar"]}"
+                        target="_blank"
+                        class="scholar-link">
+                    View Profile
+                    </a>`
+                : "N/A";
+
+                // Then build the final content
+                slidePanelContent.innerHTML = `
+                <!-- A small label above the name -->
+                 <p style="
+                font-weight: normal;
+                font-size: 25px; 
+                color: #999; 
+                margin-bottom: -30px;                ">
+                PROFESSOR
+                </p>
+                <h2 style="
+                    border-bottom: 2px solid #ccc;
+                    padding-bottom: 10px;
+                    margin-bottom: 15px;
+                ">
+                    ${prof["Professor Name"]}
+                </h2>
+               
+                <p style="font-weight: bold; font-size: 17px; color: black; margin-bottom: 8px;">${prof.Department} </p>
+                ${affiliationHtml}
+                
+                ${citationsHtml}
+                ${hIndexHtml}
+                <p><strong>Research Interests:</strong></p>
+                <ul>${relevantInterests}</ul>
+                <p><strong>Google Scholar:</strong> ${scholarLink}</p>
+                `;
+
+
+                slidePanel.classList.add("active");
+                overlay.classList.add("active");
+              })
+              .on("mouseover", function(event) {
+                d3.selectAll(`.cell[data-professor='${prof["Professor Name"]}']`).classed("highlighted", true);
+                d3.select(this)
+                  .transition().duration(200)
+                  .style("font-size", "16px")
+                  .style("font-weight", "bold")
+                  .style("text-decoration", "underline");
+
+                const relevantCourses = displayedCourses
+                  .filter(c => parseFloat(prof[c]) > 0.0)
+                  .map(c => `<li>${c}</li>`)
+                  .join("");
+                d3.select("#tooltip")
+                  .style("display", "block")
+                  .html(`
+                    <strong>${prof["Professor Name"]}</strong><br>
+                    Department: ${prof.Department}<br>
+                    Research Interests: <br>
+                    <ul>${relevantCourses || "<li>None</li>"}</ul>
+                    <p>Click to View Details</p>
+                  `)
+                  .style("left", `${event.pageX + 10}px`)
+                  .style("top", `${event.pageY + 10}px`);
+              })
+              .on("mouseout", function () {
+                d3.select(this)
+                  .transition().duration(200)
+                  .style("font-size", "14px")
+                  .style("font-weight", "normal")
+                  .style("text-decoration", "none");
+                d3.selectAll(`.cell[data-professor='${prof["Professor Name"]}']`).classed("highlighted", false);
+                d3.select("#tooltip").style("display", "none");
+              });
+
+            // Each cell
+            displayedCourses.forEach((course, courseIndex) => {
+              const value = parseFloat(prof[course]);
+              const departmentColor = colorScale(prof.Department);
+              const cellColor = value > 0.0 ? departmentColor : "#e0e0e0";
+
+              const cell = facultyRow
+                .append("div")
+                .attr("class", "cell")
+                .attr("data-course-index", courseIndex)
+                .attr("data-professor", prof["Professor Name"])
+                .style("background-color", cellColor)
+                .style("cursor", value < 0.0 ? "not-allowed" : "pointer");
+
+              if (value > 0.0) {
+                cell
+                  .on("mouseover", function(event) {
+                    d3.select(this).transition().duration(200).style("border", "2px solid orange");
+                    d3.select("#tooltip")
+                      .style("display", "block")
+                      .html(`
+                        <strong>Course:</strong> ${course}<br>
+                        <strong>Professor:</strong> ${prof["Professor Name"]}<br>
+                        <strong>Department:</strong> ${prof.Department}
+                      `)
+                      .style("left", `${event.pageX + 10}px`)
+                      .style("top", `${event.pageY + 10}px`);
+                  })
+                  .on("mouseout", function() {
+                    d3.select(this).transition().duration(200).style("border", "none");
+                    d3.select("#tooltip").style("display", "none");
+                  })
+                  .on("click", function() {
+                    const scholarUrl = prof["googlescholar"];
+                    if (scholarUrl) {
+                      window.open(scholarUrl, "_blank");
+                    } else {
+                      alert("No Google Scholar page available for this professor.");
+                    }
+                  });
+              } else {
+                // No interaction for empty cell
+                cell.on("mouseover", null).on("mouseout", null).on("click", null)
+                    .style("cursor", "default").style("border", "none");
+              }
+            });
+          });
+        }
+      });
+    }
+
+    // On dropdown changes
+    facultyDropdown.on("change", updateMatrixAndHeader);
+    researchDropdown.on("change", updateMatrixAndHeader);
+
+    // Teaching area => dataset
+    teachingDropdown.on("change", function () {
+      const selectedTeachingArea = teachingDropdown.node().value;
+      let datasetPath;
+      if (selectedTeachingArea === "Courant Institute of Mathematical Sciences (CIMS)") {
+        datasetPath = "nyu_research_CIMS.csv";
+      } else if (selectedTeachingArea === "Computer Science and Engineering") {
+        datasetPath = "nyu_research_ComputerScienceAndEngineering.csv";
+      } else {
+        alert("No dataset available for the selected teaching area.");
+        return;
+      }
+      loadDataset(datasetPath);
+    });
+
+    // Default load
+    teachingDropdown.node().value = "Computer Science and Engineering";
+    teachingDropdown.dispatch("change");
+
+    // Attach search event listeners
+    document
+      .getElementById("faculty-search")
+      .addEventListener("keyup", () => filterOptions("faculty-search", "faculty-dropdown"));
+    document
+      .getElementById("teaching-search")
+      .addEventListener("keyup", () => filterOptions("teaching-search", "teaching-dropdown"));
+    document
+      .getElementById("research-search")
+      .addEventListener("keyup", () => filterOptions("research-search", "research-dropdown"));
+  </script>
+</body>
+</html>
