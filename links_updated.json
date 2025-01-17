@@ -1,0 +1,1152 @@
+[
+    {
+        "source": "Alan Ali Kaptanoglu",
+        "target": "'Magnetohydrodynamics'",
+        "weight": 1
+    },
+    {
+        "source": "Alan Ali Kaptanoglu",
+        "target": "'Optimization'",
+        "weight": 1
+    },
+    {
+        "source": "Alan Ali Kaptanoglu",
+        "target": "'Real-Time Control']",
+        "weight": 1
+    },
+    {
+        "source": "Alan Ali Kaptanoglu",
+        "target": "'Reduced Order Models'",
+        "weight": 1
+    },
+    {
+        "source": "Alan Ali Kaptanoglu",
+        "target": "['Nuclear Fusion'",
+        "weight": 1
+    },
+    {
+        "source": "Alex Mogilner",
+        "target": "'Cell Biology'",
+        "weight": 1
+    },
+    {
+        "source": "Alex Mogilner",
+        "target": "'Mathematical Biology']",
+        "weight": 1
+    },
+    {
+        "source": "Alex Mogilner",
+        "target": "['Biophysics'",
+        "weight": 1
+    },
+    {
+        "source": "Alfred Galichon",
+        "target": "'Mathematics']",
+        "weight": 1
+    },
+    {
+        "source": "Alfred Galichon",
+        "target": "['Economics'",
+        "weight": 1
+    },
+    {
+        "source": "Andrew Gordon Wilson",
+        "target": "'Artificial Intelligence'",
+        "weight": 1
+    },
+    {
+        "source": "Andrew Gordon Wilson",
+        "target": "'Computer Science'",
+        "weight": 1
+    },
+    {
+        "source": "Andrew Gordon Wilson",
+        "target": "'Deep Learning']",
+        "weight": 1
+    },
+    {
+        "source": "Andrew Gordon Wilson",
+        "target": "'Gaussian Processes'",
+        "weight": 1
+    },
+    {
+        "source": "Andrew Gordon Wilson",
+        "target": "['Machine Learning'",
+        "weight": 1
+    },
+    {
+        "source": "Anupam Gupta",
+        "target": "['Theoretical Computer Science']",
+        "weight": 1
+    },
+    {
+        "source": "Arthur Jacot",
+        "target": "['Deep Learning']",
+        "weight": 1
+    },
+    {
+        "source": "Aurojit Panda",
+        "target": "'Cluster Computing']",
+        "weight": 1
+    },
+    {
+        "source": "Aurojit Panda",
+        "target": "'Networking'",
+        "weight": 1
+    },
+    {
+        "source": "Aurojit Panda",
+        "target": "['Distributed Systems'",
+        "weight": 1
+    },
+    {
+        "source": "Benjamin Peherstorfer",
+        "target": "'Computational Statistics'",
+        "weight": 1
+    },
+    {
+        "source": "Benjamin Peherstorfer",
+        "target": "'Machine Learning'",
+        "weight": 1
+    },
+    {
+        "source": "Benjamin Peherstorfer",
+        "target": "'Model Reduction']",
+        "weight": 1
+    },
+    {
+        "source": "Benjamin Peherstorfer",
+        "target": "'Scientific Computing'",
+        "weight": 1
+    },
+    {
+        "source": "Benjamin Peherstorfer",
+        "target": "['Applied And Computational Mathematics'",
+        "weight": 1
+    },
+    {
+        "source": "Bud Mishra",
+        "target": "'Biology'",
+        "weight": 1
+    },
+    {
+        "source": "Bud Mishra",
+        "target": "'Finance'",
+        "weight": 1
+    },
+    {
+        "source": "Bud Mishra",
+        "target": "'Mathematics'",
+        "weight": 1
+    },
+    {
+        "source": "Bud Mishra",
+        "target": "'Nano-Technology']",
+        "weight": 1
+    },
+    {
+        "source": "Bud Mishra",
+        "target": "['Computer Science'",
+        "weight": 1
+    },
+    {
+        "source": "Carlos Fernandez-Granda",
+        "target": "'Data-Driven Medicine'",
+        "weight": 1
+    },
+    {
+        "source": "Carlos Fernandez-Granda",
+        "target": "'Image Processing'",
+        "weight": 1
+    },
+    {
+        "source": "Carlos Fernandez-Granda",
+        "target": "'Inverse Problems']",
+        "weight": 1
+    },
+    {
+        "source": "Carlos Fernandez-Granda",
+        "target": "'Signal Processing'",
+        "weight": 1
+    },
+    {
+        "source": "Carlos Fernandez-Granda",
+        "target": "['Machine Learning'",
+        "weight": 1
+    },
+    {
+        "source": "Chao Li",
+        "target": "[]",
+        "weight": 1
+    },
+    {
+        "source": "Chee Yap",
+        "target": "'Algorithms'",
+        "weight": 1
+    },
+    {
+        "source": "Chee Yap",
+        "target": "'Computational Geometry']",
+        "weight": 1
+    },
+    {
+        "source": "Chee Yap",
+        "target": "'Exact Computation'",
+        "weight": 1
+    },
+    {
+        "source": "Chee Yap",
+        "target": "'Numerical Algebraic Computation'",
+        "weight": 1
+    },
+    {
+        "source": "Chee Yap",
+        "target": "['Theoretical Computer Science'",
+        "weight": 1
+    },
+    {
+        "source": "Daniele Panozzo",
+        "target": "'Geometry Processing']",
+        "weight": 1
+    },
+    {
+        "source": "Daniele Panozzo",
+        "target": "['Computer Graphics'",
+        "weight": 1
+    },
+    {
+        "source": "Davi Geiger",
+        "target": "'Computer Vision']",
+        "weight": 1
+    },
+    {
+        "source": "Davi Geiger",
+        "target": "['Artificial Intelligence'",
+        "weight": 1
+    },
+    {
+        "source": "David Fouhey",
+        "target": "'Ai For Science'",
+        "weight": 1
+    },
+    {
+        "source": "David Fouhey",
+        "target": "'Machine Learning'",
+        "weight": 1
+    },
+    {
+        "source": "David Fouhey",
+        "target": "'Solar Physics']",
+        "weight": 1
+    },
+    {
+        "source": "David Fouhey",
+        "target": "['Computer Vision'",
+        "weight": 1
+    },
+    {
+        "source": "David M Holland",
+        "target": "['Ice-Ocean Interaction']",
+        "weight": 1
+    },
+    {
+        "source": "Deane Yang",
+        "target": "['Mathematics']",
+        "weight": 1
+    },
+    {
+        "source": "Denis Zorin",
+        "target": "'Computational Fabrication']",
+        "weight": 1
+    },
+    {
+        "source": "Denis Zorin",
+        "target": "'Geometry Processing'",
+        "weight": 1
+    },
+    {
+        "source": "Denis Zorin",
+        "target": "'Scientific Computing'",
+        "weight": 1
+    },
+    {
+        "source": "Denis Zorin",
+        "target": "['Computer Graphics'",
+        "weight": 1
+    },
+    {
+        "source": "Edwin P. Gerber",
+        "target": "['Climate Science']",
+        "weight": 1
+    },
+    {
+        "source": "Eric Vanden-Eijnden",
+        "target": "['Applied And Computational Mathematics']",
+        "weight": 1
+    },
+    {
+        "source": "Ernest Davis",
+        "target": "'Commonsense Reasoning'",
+        "weight": 1
+    },
+    {
+        "source": "Ernest Davis",
+        "target": "'Knowledge Representation'",
+        "weight": 1
+    },
+    {
+        "source": "Ernest Davis",
+        "target": "'Physical Reasoning']",
+        "weight": 1
+    },
+    {
+        "source": "Ernest Davis",
+        "target": "'Spatial Reasoning'",
+        "weight": 1
+    },
+    {
+        "source": "Ernest Davis",
+        "target": "['Artificial Intelligence'",
+        "weight": 1
+    },
+    {
+        "source": "Eunsol Choi",
+        "target": "'Machine Learning']",
+        "weight": 1
+    },
+    {
+        "source": "Eunsol Choi",
+        "target": "['Natural Language Processing'",
+        "weight": 1
+    },
+    {
+        "source": "Eyal Lubetzky",
+        "target": "'Combinatorics']",
+        "weight": 1
+    },
+    {
+        "source": "Eyal Lubetzky",
+        "target": "['Probability Theory'",
+        "weight": 1
+    },
+    {
+        "source": "Fedor Bogomolov",
+        "target": "['Algebraic Geometry']",
+        "weight": 1
+    },
+    {
+        "source": "Fengbo Hang",
+        "target": "'Partial Differential Equations']",
+        "weight": 1
+    },
+    {
+        "source": "Fengbo Hang",
+        "target": "['Analysis'",
+        "weight": 1
+    },
+    {
+        "source": "Gaoyong Zhang",
+        "target": "'Geometric Analysis']",
+        "weight": 1
+    },
+    {
+        "source": "Gaoyong Zhang",
+        "target": "['Convex Geometry'",
+        "weight": 1
+    },
+    {
+        "source": "Gerard Ben Arous",
+        "target": "'Random Matrices'",
+        "weight": 1
+    },
+    {
+        "source": "Gerard Ben Arous",
+        "target": "'Spin Glasses']",
+        "weight": 1
+    },
+    {
+        "source": "Gerard Ben Arous",
+        "target": "'Statistical Mechanics'",
+        "weight": 1
+    },
+    {
+        "source": "Gerard Ben Arous",
+        "target": "'Stochastic Analysis'",
+        "weight": 1
+    },
+    {
+        "source": "Gerard Ben Arous",
+        "target": "['Probability Theory'",
+        "weight": 1
+    },
+    {
+        "source": "Gilles Francfort",
+        "target": "'Applied Analysis']",
+        "weight": 1
+    },
+    {
+        "source": "Gilles Francfort",
+        "target": "'Solid Mechanics'",
+        "weight": 1
+    },
+    {
+        "source": "Gilles Francfort",
+        "target": "['Calculus Of Variations'",
+        "weight": 1
+    },
+    {
+        "source": "Hau-Tieng Wu",
+        "target": "['Mathematical Foundation Of Data Analysis. Medical Signal Processing. High Dimensional Statistics.']",
+        "weight": 1
+    },
+    {
+        "source": "Hong Wang",
+        "target": "'Geometric Measure Theory']",
+        "weight": 1
+    },
+    {
+        "source": "Hong Wang",
+        "target": "['Fourier Analysis'",
+        "weight": 1
+    },
+    {
+        "source": "Jalal Shatah",
+        "target": "[]",
+        "weight": 1
+    },
+    {
+        "source": "Jean Ponce",
+        "target": "'Machine Learning'",
+        "weight": 1
+    },
+    {
+        "source": "Jean Ponce",
+        "target": "'Robotics']",
+        "weight": 1
+    },
+    {
+        "source": "Jean Ponce",
+        "target": "['Computer Vision'",
+        "weight": 1
+    },
+    {
+        "source": "Jinyang Li",
+        "target": "'Distributed Systems'",
+        "weight": 1
+    },
+    {
+        "source": "Jinyang Li",
+        "target": "'Networking']",
+        "weight": 1
+    },
+    {
+        "source": "Jinyang Li",
+        "target": "['Operating Systems'",
+        "weight": 1
+    },
+    {
+        "source": "Joan Bruna",
+        "target": "['Machine Learning']",
+        "weight": 1
+    },
+    {
+        "source": "John Rinzel",
+        "target": "'Sensory Processing']",
+        "weight": 1
+    },
+    {
+        "source": "John Rinzel",
+        "target": "['Computational Neuroscience'",
+        "weight": 1
+    },
+    {
+        "source": "Jonathan Niles-Weed",
+        "target": "'Mathematics Of Data Science'",
+        "weight": 1
+    },
+    {
+        "source": "Jonathan Niles-Weed",
+        "target": "'Optimal Transport']",
+        "weight": 1
+    },
+    {
+        "source": "Jonathan Niles-Weed",
+        "target": "'Probability'",
+        "weight": 1
+    },
+    {
+        "source": "Jonathan Niles-Weed",
+        "target": "['Statistics'",
+        "weight": 1
+    },
+    {
+        "source": "Joseph Bonneau",
+        "target": "'Cryptography']",
+        "weight": 1
+    },
+    {
+        "source": "Joseph Bonneau",
+        "target": "['Computer Security'",
+        "weight": 1
+    },
+    {
+        "source": "Joseph Tassarotti",
+        "target": "'Formal Verification']",
+        "weight": 1
+    },
+    {
+        "source": "Joseph Tassarotti",
+        "target": "['Programming Languages'",
+        "weight": 1
+    },
+    {
+        "source": "Julia Kempe",
+        "target": "'Machine Learning']",
+        "weight": 1
+    },
+    {
+        "source": "Julia Kempe",
+        "target": "['Quantum Computation'",
+        "weight": 1
+    },
+    {
+        "source": "Jun Zhang, \u5f35\u99ff",
+        "target": "'Biophysics'",
+        "weight": 1
+    },
+    {
+        "source": "Jun Zhang, \u5f35\u99ff",
+        "target": "'Fluid Structure Interaction'",
+        "weight": 1
+    },
+    {
+        "source": "Jun Zhang, \u5f35\u99ff",
+        "target": "'Instabilities']",
+        "weight": 1
+    },
+    {
+        "source": "Jun Zhang, \u5f35\u99ff",
+        "target": "'Nonlinear Dynamics'",
+        "weight": 1
+    },
+    {
+        "source": "Jun Zhang, \u5f35\u99ff",
+        "target": "['Physics Of Fluids'",
+        "weight": 1
+    },
+    {
+        "source": "Ken Perlin",
+        "target": "'Augmented Reality'",
+        "weight": 1
+    },
+    {
+        "source": "Ken Perlin",
+        "target": "'Games For Learning']",
+        "weight": 1
+    },
+    {
+        "source": "Ken Perlin",
+        "target": "'User Interfaces'",
+        "weight": 1
+    },
+    {
+        "source": "Ken Perlin",
+        "target": "['Computer Graphics'",
+        "weight": 1
+    },
+    {
+        "source": "Kyunghyun Cho",
+        "target": "'Deep Learning']",
+        "weight": 1
+    },
+    {
+        "source": "Kyunghyun Cho",
+        "target": "['Machine Learning'",
+        "weight": 1
+    },
+    {
+        "source": "Laure Zanna",
+        "target": "'Data Science']",
+        "weight": 1
+    },
+    {
+        "source": "Laure Zanna",
+        "target": "'Physical Oceanography'",
+        "weight": 1
+    },
+    {
+        "source": "Laure Zanna",
+        "target": "['Climate Dynamics'",
+        "weight": 1
+    },
+    {
+        "source": "Leif Ristroph",
+        "target": "'Biolocomotion'",
+        "weight": 1
+    },
+    {
+        "source": "Leif Ristroph",
+        "target": "'Flow-Structure Interactions'",
+        "weight": 1
+    },
+    {
+        "source": "Leif Ristroph",
+        "target": "'Geomorphology']",
+        "weight": 1
+    },
+    {
+        "source": "Leif Ristroph",
+        "target": "['Fluid Dynamics'",
+        "weight": 1
+    },
+    {
+        "source": "Lerrel Pinto",
+        "target": "'Machine Learning']",
+        "weight": 1
+    },
+    {
+        "source": "Lerrel Pinto",
+        "target": "['Robotics'",
+        "weight": 1
+    },
+    {
+        "source": "Leslie Greengard",
+        "target": "'Acoustics'",
+        "weight": 1
+    },
+    {
+        "source": "Leslie Greengard",
+        "target": "'Applied Mathematics'",
+        "weight": 1
+    },
+    {
+        "source": "Leslie Greengard",
+        "target": "'Computational Biology']",
+        "weight": 1
+    },
+    {
+        "source": "Leslie Greengard",
+        "target": "'Electromagnetics'",
+        "weight": 1
+    },
+    {
+        "source": "Leslie Greengard",
+        "target": "['Scientific Computing'",
+        "weight": 1
+    },
+    {
+        "source": "Marshall Ball",
+        "target": "'Cryptography']",
+        "weight": 1
+    },
+    {
+        "source": "Marshall Ball",
+        "target": "['Complexity'",
+        "weight": 1
+    },
+    {
+        "source": "Matus Telgarsky",
+        "target": "'Machine Learning Theory']",
+        "weight": 1
+    },
+    {
+        "source": "Matus Telgarsky",
+        "target": "['Deep Learning Theory'",
+        "weight": 1
+    },
+    {
+        "source": "Mehryar Mohri",
+        "target": "['Machine Learning']",
+        "weight": 1
+    },
+    {
+        "source": "Michael L. Overton",
+        "target": "'Numerical Linear Algebra'",
+        "weight": 1
+    },
+    {
+        "source": "Michael L. Overton",
+        "target": "'Optimization']",
+        "weight": 1
+    },
+    {
+        "source": "Michael L. Overton",
+        "target": "['Scientific Computing'",
+        "weight": 1
+    },
+    {
+        "source": "Michael O'Neil",
+        "target": "'Computational Physics'",
+        "weight": 1
+    },
+    {
+        "source": "Michael O'Neil",
+        "target": "'Fast Algorithms'",
+        "weight": 1
+    },
+    {
+        "source": "Michael O'Neil",
+        "target": "'Integral Equations'",
+        "weight": 1
+    },
+    {
+        "source": "Michael O'Neil",
+        "target": "'Scientific Computing']",
+        "weight": 1
+    },
+    {
+        "source": "Michael O'Neil",
+        "target": "['Applied Mathematics'",
+        "weight": 1
+    },
+    {
+        "source": "Michael Shelley",
+        "target": "'Active And Complex Matter'",
+        "weight": 1
+    },
+    {
+        "source": "Michael Shelley",
+        "target": "'Biophysics'",
+        "weight": 1
+    },
+    {
+        "source": "Michael Shelley",
+        "target": "'Cellular Mechanics'",
+        "weight": 1
+    },
+    {
+        "source": "Michael Shelley",
+        "target": "'Fluid/Structure Interactions']",
+        "weight": 1
+    },
+    {
+        "source": "Michael Shelley",
+        "target": "['Mathematical Modeling And Simulation'",
+        "weight": 1
+    },
+    {
+        "source": "Michael Walfish",
+        "target": "'Networking']",
+        "weight": 1
+    },
+    {
+        "source": "Michael Walfish",
+        "target": "'Security'",
+        "weight": 1
+    },
+    {
+        "source": "Michael Walfish",
+        "target": "['Systems'",
+        "weight": 1
+    },
+    {
+        "source": "Nader Masmoudi",
+        "target": "['Pdes']",
+        "weight": 1
+    },
+    {
+        "source": "Nina Holden",
+        "target": "['Probability Theory']",
+        "weight": 1
+    },
+    {
+        "source": "Nir Bitansky",
+        "target": "['Theoretical Computer Science -  Cryptography']",
+        "weight": 1
+    },
+    {
+        "source": "Oded Regev",
+        "target": "['Theoretical Computer Science']",
+        "weight": 1
+    },
+    {
+        "source": "Ofer Zeitouni",
+        "target": "['Probability']",
+        "weight": 1
+    },
+    {
+        "source": "Olivier Pauluis",
+        "target": "'Applied Mathematics']",
+        "weight": 1
+    },
+    {
+        "source": "Olivier Pauluis",
+        "target": "'Climate Science'",
+        "weight": 1
+    },
+    {
+        "source": "Olivier Pauluis",
+        "target": "['Atmospheric Sciences'",
+        "weight": 1
+    },
+    {
+        "source": "Patrick Cousot",
+        "target": "'Formal Methods']",
+        "weight": 1
+    },
+    {
+        "source": "Patrick Cousot",
+        "target": "'Semantics'",
+        "weight": 1
+    },
+    {
+        "source": "Patrick Cousot",
+        "target": "'Verification'",
+        "weight": 1
+    },
+    {
+        "source": "Patrick Cousot",
+        "target": "['Abstract Interpretation'",
+        "weight": 1
+    },
+    {
+        "source": "Percy Deift",
+        "target": "['Math']",
+        "weight": 1
+    },
+    {
+        "source": "Peter Unger",
+        "target": "'Epistemology'",
+        "weight": 1
+    },
+    {
+        "source": "Peter Unger",
+        "target": "'Ethics'",
+        "weight": 1
+    },
+    {
+        "source": "Peter Unger",
+        "target": "'Experimental Psychology And Philosophy']",
+        "weight": 1
+    },
+    {
+        "source": "Peter Unger",
+        "target": "'Metaphysics'",
+        "weight": 1
+    },
+    {
+        "source": "Peter Unger",
+        "target": "['Meta-Philosophy'",
+        "weight": 1
+    },
+    {
+        "source": "Qi Lei",
+        "target": "'Deep Learning']",
+        "weight": 1
+    },
+    {
+        "source": "Qi Lei",
+        "target": "'Optimization'",
+        "weight": 1
+    },
+    {
+        "source": "Qi Lei",
+        "target": "['Machine Learning'",
+        "weight": 1
+    },
+    {
+        "source": "Rajesh Ranganath",
+        "target": "'Medical Informatics']",
+        "weight": 1
+    },
+    {
+        "source": "Rajesh Ranganath",
+        "target": "'Statistics'",
+        "weight": 1
+    },
+    {
+        "source": "Rajesh Ranganath",
+        "target": "['Machine Learning'",
+        "weight": 1
+    },
+    {
+        "source": "Richard Cole",
+        "target": "['Design And Analysis Of Algorithms']",
+        "weight": 1
+    },
+    {
+        "source": "Rob Fergus",
+        "target": "'Computer Vision']",
+        "weight": 1
+    },
+    {
+        "source": "Rob Fergus",
+        "target": "['Machine Learning'",
+        "weight": 1
+    },
+    {
+        "source": "Robert J.C. Young",
+        "target": "'Cultures & Literatures'",
+        "weight": 1
+    },
+    {
+        "source": "Robert J.C. Young",
+        "target": "'Philosophy'",
+        "weight": 1
+    },
+    {
+        "source": "Robert J.C. Young",
+        "target": "'Translation']",
+        "weight": 1
+    },
+    {
+        "source": "Robert J.C. Young",
+        "target": "['Colonial & Postcolonial Histories'",
+        "weight": 1
+    },
+    {
+        "source": "Sai Qian Zhang",
+        "target": "[]",
+        "weight": 1
+    },
+    {
+        "source": "Saining Xie",
+        "target": "'Deep Learning']",
+        "weight": 1
+    },
+    {
+        "source": "Saining Xie",
+        "target": "'Machine Learning'",
+        "weight": 1
+    },
+    {
+        "source": "Saining Xie",
+        "target": "['Computer Vision'",
+        "weight": 1
+    },
+    {
+        "source": "Sam Westrick",
+        "target": "'Algorithms']",
+        "weight": 1
+    },
+    {
+        "source": "Sam Westrick",
+        "target": "'Compilers'",
+        "weight": 1
+    },
+    {
+        "source": "Sam Westrick",
+        "target": "'Programming Languages'",
+        "weight": 1
+    },
+    {
+        "source": "Sam Westrick",
+        "target": "'Run-Time Systems'",
+        "weight": 1
+    },
+    {
+        "source": "Sam Westrick",
+        "target": "['Parallel Computing'",
+        "weight": 1
+    },
+    {
+        "source": "Scott Armstrong",
+        "target": "'Homogenization'",
+        "weight": 1
+    },
+    {
+        "source": "Scott Armstrong",
+        "target": "'Probability']",
+        "weight": 1
+    },
+    {
+        "source": "Scott Armstrong",
+        "target": "['Partial Differential Equations'",
+        "weight": 1
+    },
+    {
+        "source": "Sherry Yang",
+        "target": "['Artificial Intelligence']",
+        "weight": 1
+    },
+    {
+        "source": "Sumit Chopra",
+        "target": "'Deep Learning'",
+        "weight": 1
+    },
+    {
+        "source": "Sumit Chopra",
+        "target": "'Energy Based Models'",
+        "weight": 1
+    },
+    {
+        "source": "Sumit Chopra",
+        "target": "'Healthcare']",
+        "weight": 1
+    },
+    {
+        "source": "Sumit Chopra",
+        "target": "['Machine Learning'",
+        "weight": 1
+    },
+    {
+        "source": "Sunoo Park",
+        "target": "[]",
+        "weight": 1
+    },
+    {
+        "source": "Sylvia Serfaty",
+        "target": "'Mathematical Physics'",
+        "weight": 1
+    },
+    {
+        "source": "Sylvia Serfaty",
+        "target": "'Probability']",
+        "weight": 1
+    },
+    {
+        "source": "Sylvia Serfaty",
+        "target": "['Pdes'",
+        "weight": 1
+    },
+    {
+        "source": "Theodore (Ted) S. Rappaport",
+        "target": "'6G']",
+        "weight": 1
+    },
+    {
+        "source": "Theodore (Ted) S. Rappaport",
+        "target": "'Antennas'",
+        "weight": 1
+    },
+    {
+        "source": "Theodore (Ted) S. Rappaport",
+        "target": "'Communications'",
+        "weight": 1
+    },
+    {
+        "source": "Theodore (Ted) S. Rappaport",
+        "target": "'Propagation'",
+        "weight": 1
+    },
+    {
+        "source": "Theodore (Ted) S. Rappaport",
+        "target": "['Wireless'",
+        "weight": 1
+    },
+    {
+        "source": "Tristan Buckmaster",
+        "target": "'Fluid Dynamics']",
+        "weight": 1
+    },
+    {
+        "source": "Tristan Buckmaster",
+        "target": "['Partial Differential Equations'",
+        "weight": 1
+    },
+    {
+        "source": "Victor Shoup",
+        "target": "'Algorithms']",
+        "weight": 1
+    },
+    {
+        "source": "Victor Shoup",
+        "target": "['Cryptography'",
+        "weight": 1
+    },
+    {
+        "source": "Vlad Vicol",
+        "target": "'Fluid Dynamics']",
+        "weight": 1
+    },
+    {
+        "source": "Vlad Vicol",
+        "target": "['Partial Differential Equations'",
+        "weight": 1
+    },
+    {
+        "source": "Yanjun Han",
+        "target": "'Information Theory']",
+        "weight": 1
+    },
+    {
+        "source": "Yanjun Han",
+        "target": "'Learning Theory'",
+        "weight": 1
+    },
+    {
+        "source": "Yanjun Han",
+        "target": "['Statistics'",
+        "weight": 1
+    },
+    {
+        "source": "Yann Lecun",
+        "target": "'Computer Vision'",
+        "weight": 1
+    },
+    {
+        "source": "Yann Lecun",
+        "target": "'Image Compression']",
+        "weight": 1
+    },
+    {
+        "source": "Yann Lecun",
+        "target": "'Machine Learning'",
+        "weight": 1
+    },
+    {
+        "source": "Yann Lecun",
+        "target": "'Robotics'",
+        "weight": 1
+    },
+    {
+        "source": "Yann Lecun",
+        "target": "['Ai'",
+        "weight": 1
+    },
+    {
+        "source": "Yevgeniy Dodis",
+        "target": "'Computer Security']",
+        "weight": 1
+    },
+    {
+        "source": "Yevgeniy Dodis",
+        "target": "['Cryptography'",
+        "weight": 1
+    },
+    {
+        "source": "Yi Zhang\uff08\u5f20\u794e\uff09",
+        "target": "'Atmospheric Dynamics'",
+        "weight": 1
+    },
+    {
+        "source": "Yi Zhang\uff08\u5f20\u794e\uff09",
+        "target": "'Atmospheric Radiation']",
+        "weight": 1
+    },
+    {
+        "source": "Yi Zhang\uff08\u5f20\u794e\uff09",
+        "target": "'Heat Stress'",
+        "weight": 1
+    },
+    {
+        "source": "Yi Zhang\uff08\u5f20\u794e\uff09",
+        "target": "'Precipitation'",
+        "weight": 1
+    },
+    {
+        "source": "Yi Zhang\uff08\u5f20\u794e\uff09",
+        "target": "['Tropical Convection'",
+        "weight": 1
+    },
+    {
+        "source": "Yisong Yang",
+        "target": "['Mathematics And Mathematical Physics']",
+        "weight": 1
+    },
+    {
+        "source": "Yu Chen",
+        "target": "'Biomarkers']",
+        "weight": 1
+    },
+    {
+        "source": "Yu Chen",
+        "target": "'Environmental Exposures'",
+        "weight": 1
+    },
+    {
+        "source": "Yu Chen",
+        "target": "['Chronic Disease Epidemiology'",
+        "weight": 1
+    }
+]
